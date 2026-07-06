@@ -243,8 +243,28 @@ lin_bridge.py          Pi client: scan / read / monitor / mqtt / inspect
 lin-bridge.service     systemd unit for the mqtt mode
 ```
 
+## TODO
+
+- KI Kauderwelsch aufräumen
+- Bits deutlicher darstellen..
+
 ## Note on AI assistance
 
 The reverse engineering, code, and this documentation were produced with
 the help of AI (Claude Opus 4.8 by Anthropic). All frame decodings were
 verified against the physical devices.
+
+## Trademarks and disclaimer
+This is an independent, non-commercial hobby project. It is not affiliated
+with, endorsed by, or connected to Dometic or Votronic in any way. "Dometic"
+and "Votronic" and any related product names are trademarks or registered
+trademarks of their respective owners. They are used here purely descriptively,
+to identify the hardware this project interfaces with.
+
+All information in this project was obtained independently through
+black-box observation of hardware I own, by monitoring bus traffic and
+testing device behaviour. 
+
+This project is provided for informational and educational purposes only, with
+no warranty of any kind. Interfacing with your vehicle's electronics is done at
+your own risk and may affect your devices or void their warranty.

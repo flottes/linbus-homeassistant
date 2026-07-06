@@ -1,0 +1,32 @@
+[Unit]
+Description=LIN-Bus Bridge -> MQTT/Home Assistant (Wohnmobil)
+# Erst starten, wenn Netzwerk da ist (Broker erreichbar)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+
+# --- anpassen: Benutzer, unter dem es laufen soll ---
+User=pi
+Group=pi
+
+# --- anpassen: Pfad zum Script-Verzeichnis ---
+WorkingDirectory=/home/pi/python
+
+# Der stabile udev-Symlink /dev/lin-bridge zeigt immer auf den ESP32.
+ExecStart=/usr/bin/python3 /home/pi/python/lin_bridge.py --port /dev/lin-bridge mqtt
+
+# Bei Absturz oder USB-Verlust automatisch neu starten
+Restart=always
+RestartSec=5
+
+# Sauberes Logging in den journalctl-Journal
+StandardOutput=journal
+StandardError=journal
+
+# Python-Ausgabe nicht puffern, damit Logs sofort erscheinen
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target
